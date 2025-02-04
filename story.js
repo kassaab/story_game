@@ -2,35 +2,48 @@ playerName = prompt("What is your name?");
 
 alert("Hello, " + playerName + " " + welcome);
 
-let pathChoice = (prompt(introText + "\n" + pathText)).toLowerCase();
+let pathChoice = prompt(introText + "\n" + pathText).toLowerCase();
 
-if (pathChoice === "mountain") {
+if (pathChoice === "path") {
     let mountainChoice = prompt(pathText1).toLowerCase();
-    if (mountainChoice === "climb") {
-        alert(endText1);
-    } else if (mountainChoice === "back") {
-        alert(endText4);
+    if (mountainChoice === "enter") {
+        let hutChoice = prompt(pathText1A).toLowerCase();
+        if (hutChoice === "follow") {
+            alert(endText2);
+        } else {
+            alert(endText7);
+        }
+    } else if (mountainChoice === "climb") {
+        let ledgeChoice = prompt(pathText1B).toLowerCase();
+        if (ledgeChoice === "cross") {
+            alert(endText3);
+        } else {
+            alert(endText7);
+        }
     } else {
         alert("Invalid choice, you lost your chance!");
     }
+
 } else if (pathChoice === "cave") {
     let caveChoice = prompt(pathText2).toLowerCase();
-    if (caveChoice === "deeper") {
-        alert(endText2);
+    if (caveChoice === "light") {
+        let treasureChoice = prompt(pathText2A).toLowerCase();
+        if (treasureChoice === "take") {
+            alert(endText4);
+        } else {
+            alert(endText6);
+        }
     } else if (caveChoice === "back") {
-        alert(endText4);
+        let tunnelChoice = prompt(pathText2B).toLowerCase();
+        if (tunnelChoice === "deeper") {
+            alert(endText5);
+        } else {
+            alert(endText6);
+        }
     } else {
         alert("Invalid choice, you lost your chance!");
     }
-} else if (pathChoice === "river") {
-    let riverChoice = prompt(pathText3).toLowerCase();
-    if (riverChoice === "cross") {
-        alert(endText6);
-    } else if (riverChoice === "follow") {
-        alert(endText3);
-    } else {
-        alert("Invalid choice, you lost your chance!");
-    }
+
 } else {
     alert("Invalid choice, please restart the game!");
 }
